@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-luxury-black: #121212;
+  --color-luxury-gold: #D4AF37;
+  --color-luxury-cream: #FAF9F6;
+  --color-luxury-emerald: #043927;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-zoom-out: zoom-out 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes zoom-out {
+  0% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@layer base {
+  body {
+    @apply bg-luxury-black text-luxury-cream selection:bg-luxury-gold selection:text-luxury-black;
+  }
+}
+
+.glass {
+  @apply backdrop-blur-md bg-white/5 border border-white/10;
+}
+
+.text-gradient-gold {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-luxury-gold via-[#F1D592] to-luxury-gold;
+}
+
+.luxury-button {
+  @apply relative overflow-hidden transition-all duration-300 px-8 py-3 rounded-none border border-luxury-gold text-luxury-gold hover:text-luxury-black hover:bg-luxury-gold font-medium uppercase tracking-widest text-xs;
+}
+
+.luxury-button-filled {
+  @apply relative overflow-hidden transition-all duration-300 px-8 py-3 rounded-none bg-luxury-gold text-luxury-black hover:bg-transparent hover:text-luxury-gold border border-luxury-gold font-medium uppercase tracking-widest text-xs;
+}
+
+.section-title {
+  @apply font-serif text-4xl md:text-6xl mb-6;
+}
+
+.section-subtitle {
+  @apply font-sans uppercase tracking-[0.3em] text-luxury-gold text-xs mb-4 font-semibold;
+}
